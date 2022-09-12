@@ -6,22 +6,25 @@ import UserContext from "./context/UserContext";
 import SignUp from "./components/SignUp";
 import Signin from "./components/Signin";
 import Main from "./components/Main";
-//import Ranking from "./components/Ranking";
-
+import CredentialsFunction from "./components/CredentialsPage";
+import UnicContent from "./components/UnicContent";
 function App() {
-      const [nameUser, setNameUser] = useState("")
+      const [page, setPage] = useState("")
+      const [itemId, setItemId] = useState("")
       const [user, setUser] = useState({
-        token: ""
+        token: ""  
     })
       
     
     return (
       <BrowserRouter>
-        <UserContext.Provider value={{ user, setUser, nameUser, setNameUser }}>
+        <UserContext.Provider value={{ user, setUser, page, setPage}}>
           <Routes>
               <Route path="/" element={<Signin />} />
               <Route path="/signup" element={<SignUp />} />
               <Route path="/main" element={<Main />} />
+              <Route path="/content" element={<CredentialsFunction />} />
+              <Route path="/unic" element={<UnicContent />} />
           </Routes>
         </UserContext.Provider>
       </BrowserRouter>
